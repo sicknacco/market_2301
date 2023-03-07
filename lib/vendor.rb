@@ -12,4 +12,12 @@ class Vendor
   def check_stock(item)
     @stock
   end
+
+  def stock(item, count)
+    if @inventory.count == 0
+      @inventory[item] = count
+    else
+      @inventory[item] += count
+    end
+  end
 end
