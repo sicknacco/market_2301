@@ -19,5 +19,6 @@ class Vendor
     else
       @inventory[item] += count
     end
+    @stock += count
   end
 end
