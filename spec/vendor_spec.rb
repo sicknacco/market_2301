@@ -7,7 +7,9 @@ RSpec.describe Vendor do
     @vendor = Vendor.new("Rocky Mountain Fresh")
   end
 
-  it 'exists' do
+  it 'exists and has a name' do
     expect(@vendor).to be_a(Vendor)
+    expect(@vendor.name).to eq("Rocky Mountain Fresh")
   end
+
 end
