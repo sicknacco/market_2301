@@ -16,8 +16,11 @@ class Vendor
   def stock(item, count)
     if @inventory.count == 0
       @inventory[item] = count
-    else
+    elsif
       @inventory[item] += count
+    else
+      # @inventory = {}
+      # @inventory[item] = count
     end
     @stock += count
   end
