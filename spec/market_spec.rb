@@ -47,4 +47,12 @@ RSpec.describe Market do
     @vendor3.stock(@item1, 65)
     expect(@vendor3.inventory).to eq({@item1 => 65})
   end
+
+  it 'can list all vendors in an array' do
+    @market.add_vendor(@vendor1)
+    @market.add_vendor(@vendor2)
+    @market.add_vendor(@vendor3)
+    
+    expect(@market.vendors).to eq([@vendor1, @vendor2, @vendor3])
+  end
 end
