@@ -16,4 +16,13 @@ class Market
       vendor.name
     end
   end
+
+  def vendors_that_sell(item)
+    item_vendors = []
+    @vendors.select do |vendor|
+      if vendor.inventory.keys.include?(item)
+        item_vendors << item
+      end
+    end
+  end
 end
