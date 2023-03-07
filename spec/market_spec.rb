@@ -10,6 +10,6 @@ RSpec.describe Market do
 
   it 'exists and has a name' do
     expect(@market).to be_a(Market)
-    # expect(@market.name).to eq("South Pearl Street Farmers Market")
+    expect(@market.name).to eq("South Pearl Street Farmers Market")
   end
 end
