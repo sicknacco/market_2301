@@ -19,6 +19,6 @@ RSpec.describe Vendor do
   end
 
   it 'can check its current stock of an item' do
-    @vendor.check_stock(@item1).to eq(0)
+    expect(@vendor.check_stock(@item1)).to eq(0)
   end
 end
