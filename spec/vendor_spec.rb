@@ -17,4 +17,8 @@ RSpec.describe Vendor do
     expect(@vendor.check_stock(@item1)).to eq(0)
   end
 
+  it 'can stock items' do
+    @vendor.stock(item1, 30)
+    expect(@vendor.inventory).to eq({:item1 => 30})
+  end
 end
