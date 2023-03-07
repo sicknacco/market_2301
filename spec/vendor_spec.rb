@@ -33,6 +33,5 @@ RSpec.describe Vendor do
     
     @vendor.stock(@item2, 12)
     expect(@vendor.inventory).to eq({@item1 => 55, @item2 => 12})
-
   end
 end
