@@ -56,4 +56,19 @@ RSpec.describe Market do
     expect(@market.vendors).to eq([@vendor1, @vendor2, @vendor3])
     expect(@market.vendor_names).to eq(["Rocky Mountain Fresh", "Ba-Nom-a-Nom", "Palisade Peach Shack"])
   end
+
+  it 'can tell if a vendor sells a specific item' do
+    @market.add_vendor(@vendor1)
+    @vendor1.stock(@item1, 35)
+    @vendor1.stock(@item2, 7)
+  
+    @market.add_vendor(@vendor2)
+    @vendor2.stock(@item4, 50)
+    @vendor2.stock(@item3, 25)
+    
+    @market.add_vendor(@vendor3)
+    @vendor3.stock(@item1, 65)
+  
+    expect(@market.vendors_that_sell(@item1)).to eq([@vendor1, @vendor3])
+  end
 end
