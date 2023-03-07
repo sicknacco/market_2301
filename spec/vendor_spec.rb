@@ -12,4 +12,8 @@ RSpec.describe Vendor do
     expect(@vendor.name).to eq("Rocky Mountain Fresh")
   end
 
+  it 'has inventory and can check stock' do
+    expect(@vendor.inventory).to eq({})
+  end
+
 end
