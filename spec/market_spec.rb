@@ -92,4 +92,19 @@ RSpec.describe Market do
 
     expect(@vendor1.potential_revenue).to eq(29.75)
   end
+
+  it 'can return a sorted list of all items' do
+    @market.add_vendor(@vendor1)
+    @vendor1.stock(@item1, 35)
+    @vendor1.stock(@item2, 7)
+  
+    @market.add_vendor(@vendor2)
+    @vendor2.stock(@item4, 50)
+    @vendor2.stock(@item3, 25)
+    
+    @market.add_vendor(@vendor3)
+    @vendor3.stock(@item1, 65)
+
+    expect(@market.sorted_item_list).to eq([@item4.name, @item1.name, @item3.name, @item2.name])
+  end
 end
