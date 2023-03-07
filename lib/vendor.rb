@@ -10,7 +10,7 @@ class Vendor
     @inventory[item]
   end
 
-  def stock(item, price)
-    @inventory[item] = price
+  def stock(item, amount)
+    @inventory[item] += amount
   end
 end  
