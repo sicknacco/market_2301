@@ -45,10 +45,22 @@ class Market
         if market_stock[item]
           market_stock[item][:quantity] += quantity
         else
-          market_stock[item] = {quantity: vendor.inventory[item], vendors: vendors_that_sell(item)}
+          market_stock[item] = {quantity: vendor.inventory[item],
+            vendors: vendors_that_sell(item)
+          }
         end
       end
     end
     market_stock
+  end
+
+  def overstocked_items
+    overstock = []
+    total_inventory.each do |item, info_hash|
+      if info_hash[:quantity] > 50 && info_hash[:vendors].length > 1
+        overstock << item
+      end
+    end
+    overstock
   end
 end
