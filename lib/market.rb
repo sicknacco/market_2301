@@ -37,4 +37,18 @@ class Market
     end
     items.sort.uniq
   end
+
+  def total_inventory
+    market_stock = {}
+    @vendors.each do |vendor|
+      vendor.inventory.each do |item, quantity|
+        if market_stock[item]
+          market_stock[item][:quantity] += quantity
+        else
+          market_stock[item] = {quantity: vendor.inventory[item], vendors: vendors_that_sell(item)}
+        end
+      end
+    end
+    market_stock
+  end
 end
